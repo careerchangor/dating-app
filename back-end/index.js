@@ -4,9 +4,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const usersRoute = require("./routes/users");
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
 
 mongoose
   .connect(process.env.DB_URI, {
